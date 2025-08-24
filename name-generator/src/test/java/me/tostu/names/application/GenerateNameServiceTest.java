@@ -28,19 +28,17 @@ class GenerateNameServiceTest {
         CapturingFakeGenerator fake = new CapturingFakeGenerator();
         GenerateNameService svc = new GenerateNameService(fake);
 
-        NameRequest req = new NameRequest();
-        req.setContext("solar analytics for homes");
-        // leave template and count null to trigger defaults
+        NameRequest req = new NameRequest(null, "solar analytics for homes", null);
 
         NameSuggestion result = svc.generateNames(req);
 
         assertNotNull(result);
-        List<String> names = result.getNames();
+        List<String> names = result.names();
         assertEquals(3, names.size());
 
         assertNotNull(fake.last);
-        assertNotNull(fake.last.getContext());
-        String prompt = fake.last.getContext();
+        assertNotNull(fake.last.context());
+        String prompt = fake.last.context();
         assertTrue(prompt.toLowerCase().contains("generate 10"));
         assertTrue(prompt.toLowerCase().contains("brand-friendly"));
         assertTrue(prompt.contains("Return ONLY a JSON array"));
@@ -51,14 +49,11 @@ class GenerateNameServiceTest {
         CapturingFakeGenerator fake = new CapturingFakeGenerator();
         GenerateNameService svc = new GenerateNameService(fake);
 
-        NameRequest req = new NameRequest();
-        req.setTemplate(NameTemplate.SHORT_AND_CATCHY);
-        req.setCount(5);
-        req.setContext("ai fintech app");
+        NameRequest req = new NameRequest(NameTemplate.SHORT_AND_CATCHY, "ai fintech app", 5);
 
         svc.generateNames(req);
 
-        String prompt = fake.last.getContext();
+        String prompt = fake.last.context();
         assertTrue(prompt.toLowerCase().contains("generate 5"));
         assertTrue(prompt.toLowerCase().contains("short"));
     }

@@ -40,14 +40,14 @@ public class GeminiNameGeneratorAdapter implements NameGeneratorPort {
             LOG.warn("Gemini API key missing. Returning empty suggestions.");
             return new NameSuggestion(Collections.emptyList());
         }
-        String prompt = request.getContext();
+        String prompt = request.context();
         try {
             GeminiRequest gemReq = GeminiRequest.fromText(prompt);
             GeminiResponse response = api.generateContent(model, apiKey, gemReq);
             List<String> names = extractNames(response);
             // Trim to requested count if needed
-            if (request.getCount() != null && request.getCount() > 0 && names.size() > request.getCount()) {
-                names = names.subList(0, request.getCount());
+            if (request.count() != null && request.count() > 0 && names.size() > request.count()) {
+                names = names.subList(0, request.count());
             }
             return new NameSuggestion(names);
         } catch (Exception e) {

@@ -20,20 +20,12 @@ public class GenerateNameService {
     }
 
     public NameSuggestion generateNames(NameRequest request) {
-        // Default count
-        if (request.getCount() == null || request.getCount() <= 0) {
-            request.setCount(10);
-        }
-        if (request.getTemplate() == null) {
-            request.setTemplate(NameTemplate.BRAND_FRIENDLY);
-        }
-        // Enrich context with selected template guidance
-        String prompt = buildPrompt(request.getTemplate(), request.getContext(), request.getCount());
+        int count = (request.count() == null || request.count() <= 0) ? 10 : request.count();
+        NameTemplate template = request.template() == null ? NameTemplate.BRAND_FRIENDLY : request.template();
 
-        NameRequest enriched = new NameRequest();
-        enriched.setTemplate(request.getTemplate());
-        enriched.setCount(request.getCount());
-        enriched.setContext(prompt);
+        String prompt = buildPrompt(template, request.context(), count);
+
+        NameRequest enriched = new NameRequest(template, prompt, count);
         return generatorPort.generate(enriched);
     }
 
