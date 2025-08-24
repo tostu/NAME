@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Name Generator</title>
+  <script src="https://unpkg.com/htmx.org@2.0.3"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-900">
+  <header class="bg-white shadow">
+    <div class="max-w-3xl mx-auto px-4 py-6">
+      <h1 class="text-2xl font-semibold">AI Name Generator</h1>
+      <p class="text-sm text-slate-600">Type-safe microfrontend powered by Quarkus Qute + HTMX + Tailwind</p>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 py-8">
+    <div class="bg-white rounded-lg shadow p-6">
+      <form hx-post="ui/generate" hx-target="#results" hx-swap="innerHTML" class="space-y-4">
+        <div>
+          <label for="template" class="block text-sm font-medium mb-1">Template</label>
+          <select id="template" name="template" class="w-full rounded border-slate-300 focus:border-indigo-500 focus:ring-indigo-500">
+            {#for t in templates}
+              <option value="{t}">{t}</option>
+            {/for}
+          </select>
+        </div>
+        <div>
+          <label for="context" class="block text-sm font-medium mb-1">Context</label>
+          <textarea id="context" name="context" rows="3" placeholder="Describe your product, keywords, industry, constraints..." class="w-full rounded border-slate-300 focus:border-indigo-500 focus:ring-indigo-500"></textarea>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="grow">
+            <label for="count" class="block text-sm font-medium mb-1">How many names?</label>
+            <input id="count" name="count" type="number" min="1" max="50" value="10" class="w-full rounded border-slate-300 focus:border-indigo-500 focus:ring-indigo-500" />
+          </div>
+          <div class="pt-6">
+            <button type="submit" class="inline-flex items-center gap-2 px-4 py-2 rounded bg-indigo-600 text-white hover:bg-indigo-700">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M2.94 2.94a.75.75 0 011.06 0l13.06 13.06a.75.75 0 11-1.06 1.06l-1.917-1.917a7 7 0 11-1.06-1.06L2.94 4a.75.75 0 010-1.06zM7.25 8.5a.75.75 0 000 1.5h5.5a.75.75 0 000-1.5h-5.5z"/></svg>
+              Generate
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div id="results" class="mt-6"></div>
+  </main>
+
+  <footer class="max-w-3xl mx-auto px-4 py-8 text-center text-sm text-slate-500">
+    Built with Quarkus 3, Qute, HTMX, and TailwindCSS.
+  </footer>
+</body>
+</html>

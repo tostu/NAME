@@ -1,0 +1,15 @@
+<div class="bg-white rounded-lg shadow p-6">
+  {#if names.size > 0}
+    <h2 class="text-lg font-semibold mb-3">Suggestions</h2>
+    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+      {#for n in names}
+        <li class="px-3 py-2 rounded border border-slate-200 flex items-center justify-between">
+          <span class="font-medium">{n}</span>
+          <button class="text-indigo-600 hover:underline" onclick="navigator.clipboard.writeText('{n}')">Copy</button>
+        </li>
+      {/for}
+    </ul>
+  {#else}
+    <div class="text-slate-600">No results yet. Submit the form to generate name ideas.</div>
+  {/if}
+</div>
