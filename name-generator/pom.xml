@@ -39,14 +39,14 @@
     </dependencyManagement>
 
     <dependencies>
-        <dependency>
-            <groupId>io.quarkiverse.langchain4j</groupId>
-            <artifactId>quarkus-langchain4j-openai</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkiverse.langchain4j</groupId>
-            <artifactId>quarkus-langchain4j-easy-rag</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>io.quarkiverse.langchain4j</groupId>-->
+<!--            <artifactId>quarkus-langchain4j-openai</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>io.quarkiverse.langchain4j</groupId>-->
+<!--            <artifactId>quarkus-langchain4j-easy-rag</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-arc</artifactId>
@@ -96,6 +96,17 @@
             <artifactId>quarkus-junit5</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- Qute templating for type-safe microfrontend -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-qute</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-rest-qute</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
