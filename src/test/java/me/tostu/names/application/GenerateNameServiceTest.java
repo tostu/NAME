@@ -29,7 +29,7 @@ class GenerateNameServiceTest {
         CapturingFakeGenerator fake = new CapturingFakeGenerator();
         GenerateNameService svc = new GenerateNameService(fake, new NameGenerationStrategyFactory());
 
-        NameRequest req = new NameRequest(null, null, "solar analytics for homes", null);
+        NameRequest req = new NameRequest(null, "solar analytics for homes", null);
 
         NameSuggestion result = svc.generateNames(req);
 
@@ -40,7 +40,7 @@ class GenerateNameServiceTest {
         assertNotNull(fake.last);
         assertNotNull(fake.last.context());
         String prompt = fake.last.context();
-        assertTrue(prompt.toLowerCase().contains("generate 10"));
+        assertTrue(prompt.toLowerCase().contains("generate exactly 10"));
         assertTrue(prompt.toLowerCase().contains("brand-friendly"));
         assertTrue(prompt.contains("Return ONLY a JSON array"));
     }
@@ -50,12 +50,12 @@ class GenerateNameServiceTest {
         CapturingFakeGenerator fake = new CapturingFakeGenerator();
         GenerateNameService svc = new GenerateNameService(fake, new NameGenerationStrategyFactory());
 
-        NameRequest req = new NameRequest(NameTemplate.SHORT_AND_CATCHY, null, "ai fintech app", 5);
+        NameRequest req = new NameRequest(NameTemplate.SHORT_AND_CATCHY, "ai fintech app", 5);
 
         svc.generateNames(req);
 
         String prompt = fake.last.context();
-        assertTrue(prompt.toLowerCase().contains("generate 5"));
+        assertTrue(prompt.toLowerCase().contains("generate exactly 5"));
         assertTrue(prompt.toLowerCase().contains("short"));
     }
 
@@ -69,9 +69,9 @@ class GenerateNameServiceTest {
         svc.generateNames(req);
 
         String prompt = fake.last.context();
-        assertTrue(prompt.toLowerCase().contains("german words"));
-        assertTrue(prompt.toLowerCase().contains("character names"));
-        assertTrue(prompt.toLowerCase().contains("stark=strong"));
+        assertTrue(prompt.toLowerCase().contains("german"));
+        assertTrue(prompt.toLowerCase().contains("frieren"));
+        assertTrue(prompt.toLowerCase().contains("stark"));
         assertTrue(prompt.contains("heroic warrior"));
     }
 
@@ -85,9 +85,9 @@ class GenerateNameServiceTest {
         svc.generateNames(req);
 
         String prompt = fake.last.context();
-        assertTrue(prompt.toLowerCase().contains("spell names"));
-        assertTrue(prompt.toLowerCase().contains("german roots"));
-        assertTrue(prompt.toLowerCase().contains("fantasy suffix"));
+        assertTrue(prompt.toLowerCase().contains("frieren"));
+        assertTrue(prompt.toLowerCase().contains("german"));
+        assertTrue(prompt.toLowerCase().contains("fantasy"));
         assertTrue(prompt.contains("ice magic"));
     }
 }

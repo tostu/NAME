@@ -5,5 +5,6 @@ public enum NameTemplate {
     TECHY,
     FANTASY,
     SHORT_AND_CATCHY,
-    PROFESSIONAL
+    PROFESSIONAL,
+    FRIEREN
 }
