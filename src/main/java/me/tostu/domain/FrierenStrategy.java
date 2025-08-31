@@ -19,6 +19,17 @@ public class FrierenStrategy extends AbstractNameGenerationStrategy {
     }
     
     @Override
+    protected String[] getLinguisticAspects() {
+        return new String[]{
+            "Apply Germanic phonological patterns and morphology",
+            "Use umlauts (ä, ö, ü) for authentic German character",
+            "Employ consonant clusters typical of German (st, sch, pf)",
+            "Include compound word formations characteristic of German",
+            "Map semantic meaning to phonetic structure (harsh sounds for strength, soft for gentleness)"
+        };
+    }
+    
+    @Override
     protected String[] getExamples() {
         return new String[]{
             "Frieren (freeze/cold) - immortal elf mage",

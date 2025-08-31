@@ -19,6 +19,17 @@ public class ShortAndCatchyStrategy extends AbstractNameGenerationStrategy {
     }
     
     @Override
+    protected String[] getLinguisticAspects() {
+        return new String[]{
+            "Maximize consonant-vowel alternation for rhythm",
+            "Use high-frequency phonemes for quick recognition",
+            "Employ monosyllabic or bisyllabic structures only",
+            "Favor fricatives (f, s, sh) and plosives (p, t, k) for punch",
+            "Avoid vowel clusters that slow pronunciation"
+        };
+    }
+    
+    @Override
     protected String[] getExamples() {
         return new String[]{"Bit", "Hype", "Flux", "Zap", "Vim", "Git", "Zip"};
     }

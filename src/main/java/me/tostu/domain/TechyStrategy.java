@@ -19,6 +19,17 @@ public class TechyStrategy extends AbstractNameGenerationStrategy {
     }
     
     @Override
+    protected String[] getLinguisticAspects() {
+        return new String[]{
+            "Use compound words and portmanteau formations",
+            "Favor sharp consonants (k, x, z) for technical precision",
+            "Include tech-familiar morphemes like -hub, -stack, -ify, -ly",
+            "Use camelCase or kebab-case friendly structures",
+            "Avoid ambiguous pronunciations that could confuse in international contexts"
+        };
+    }
+    
+    @Override
     protected String[] getExamples() {
         return new String[]{"GitHub", "TypeScript", "MongoDB", "CloudFlare", "Vercel"};
     }

@@ -19,6 +19,17 @@ public class FantasyStrategy extends AbstractNameGenerationStrategy {
     }
     
     @Override
+    protected String[] getLinguisticAspects() {
+        return new String[]{
+            "Use Old English and Celtic phonemes for authenticity",
+            "Employ liquid consonants (l, r) for flowing, ethereal quality",
+            "Incorporate archaic morphemes like -wick, -shire, -ford, -haven",
+            "Use diphthongs (ae, ou, ei) for mystical resonance",
+            "Apply elision and apostrophes for elven linguistic aesthetics"
+        };
+    }
+    
+    @Override
     protected String[] getExamples() {
         return new String[]{"Rivendell", "Shadowfax", "Mithril", "Elderwood", "Starfall"};
     }
