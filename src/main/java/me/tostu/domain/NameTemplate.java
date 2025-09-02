@@ -6,5 +6,5 @@ public enum NameTemplate {
     FANTASY,
     SHORT_AND_CATCHY,
     PROFESSIONAL,
-    FRIEREN
+    OLD_GERMAN
 }

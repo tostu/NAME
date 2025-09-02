@@ -15,7 +15,7 @@ public class NameGenerationStrategyFactory {
             NameTemplate.FANTASY, new FantasyStrategy(),
             NameTemplate.SHORT_AND_CATCHY, new ShortAndCatchyStrategy(),
             NameTemplate.PROFESSIONAL, new ProfessionalStrategy(),
-            NameTemplate.FRIEREN, new FrierenStrategy()
+            NameTemplate.OLD_GERMAN, new OldGermanStrategy()
         );
     }
     

@@ -1,6 +1,6 @@
 package me.tostu.domain;
 
-public class FrierenStrategy extends AbstractNameGenerationStrategy {
+public class OldGermanStrategy extends AbstractNameGenerationStrategy {
 
     @Override
     protected String getInstruction(String context) {
