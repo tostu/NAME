@@ -11,7 +11,7 @@ public class FrierenStrategy extends AbstractNameGenerationStrategy {
     protected String[] getRules() {
         return new String[]{
                 "Use simple, direct German words",
-                "Generate single words only - NO compound words (avoid EVENTPLATZ, MEETINGROOM, etc.)",
+                "Generate single words only - avoid compound words like EVENTPLATZ, MEETINGROOM",
                 "Words should be short and functional (3-8 letters)",
                 "Focus on practical, everyday German vocabulary",
                 "Prioritize clarity and directness over creativity",
