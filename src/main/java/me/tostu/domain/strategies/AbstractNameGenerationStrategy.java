@@ -1,4 +1,7 @@
-package me.tostu.domain;
+package me.tostu.domain.strategies;
+
+import me.tostu.domain.NameGenerationStrategy;
+import me.tostu.domain.NameRequest;
 
 public abstract class AbstractNameGenerationStrategy implements NameGenerationStrategy {
     

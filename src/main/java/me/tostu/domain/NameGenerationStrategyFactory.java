@@ -1,6 +1,7 @@
 package me.tostu.domain;
 
 import jakarta.enterprise.context.ApplicationScoped;
+import me.tostu.domain.strategies.*;
 import java.util.Map;
 
 @ApplicationScoped

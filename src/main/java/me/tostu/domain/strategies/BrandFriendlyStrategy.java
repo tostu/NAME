@@ -1,4 +1,4 @@
-package me.tostu.domain;
+package me.tostu.domain.strategies;
 
 public class BrandFriendlyStrategy extends AbstractNameGenerationStrategy {
     
