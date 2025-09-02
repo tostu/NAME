@@ -72,8 +72,14 @@ public class GeminiNameGeneratorAdapter implements NameGeneratorPort {
             return Collections.emptyList();
         }
         // Expected to be a JSON array of strings per our prompt
+        // Clean markdown JSON blocks if present
+        String cleanedText = text;
+        if (text.contains("```json")) {
+            cleanedText = text.replaceAll("```json\\s*", "").replaceAll("```\\s*$", "").trim();
+        }
+        
         try {
-            List<String> arr = objectMapper.readValue(text, new TypeReference<List<String>>(){});
+            List<String> arr = objectMapper.readValue(cleanedText, new TypeReference<List<String>>(){});
             // Normalize entries
             List<String> cleaned = new ArrayList<>();
             for (String s : arr) {

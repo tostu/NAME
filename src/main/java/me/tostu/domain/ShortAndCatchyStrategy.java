@@ -4,7 +4,8 @@ public class ShortAndCatchyStrategy extends AbstractNameGenerationStrategy {
     
     @Override
     protected String getInstruction(String context) {
-        return "Generate very short, catchy names for: " + context;
+        return "Generate very short, catchy names that instantly capture the core appeal and energy of: " + context + 
+               ". Names must be punchy abbreviations or distillations of what makes " + context + " exciting and memorable.";
     }
     
     @Override
@@ -32,5 +33,17 @@ public class ShortAndCatchyStrategy extends AbstractNameGenerationStrategy {
     @Override
     protected String[] getExamples() {
         return new String[]{"Bit", "Hype", "Flux", "Zap", "Vim", "Git", "Zip"};
+    }
+    
+    @Override
+    protected String[] getAdditionalGuidance() {
+        return new String[]{
+            "Extract the most essential 1-2 concepts from the context and compress them into the name",
+            "Prioritize memorability over cleverness - simple is better",
+            "Test typing speed and accuracy on mobile keyboards",
+            "Consider social media handle availability across platforms",
+            "Ensure the name looks good in all caps and lowercase",
+            "Think about how it will appear in app store listings and search results"
+        };
     }
 }

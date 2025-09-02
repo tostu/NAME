@@ -4,7 +4,8 @@ public class TechyStrategy extends AbstractNameGenerationStrategy {
     
     @Override
     protected String getInstruction(String context) {
-        return "Generate modern, tech-sounding names for: " + context;
+        return "Generate modern, tech-sounding names that directly reflect the technical nature and purpose of: " + context + 
+               ". Names should immediately communicate the technology, function, or innovation behind " + context + ".";
     }
     
     @Override
@@ -32,5 +33,17 @@ public class TechyStrategy extends AbstractNameGenerationStrategy {
     @Override
     protected String[] getExamples() {
         return new String[]{"GitHub", "TypeScript", "MongoDB", "CloudFlare", "Vercel"};
+    }
+    
+    @Override
+    protected String[] getAdditionalGuidance() {
+        return new String[]{
+            "Break down the context into technical components and use them as naming building blocks",
+            "Consider how the name will appear in code imports and package names",
+            "Ensure compatibility with programming language naming conventions",
+            "Think about API endpoint and service naming implications",
+            "Verify the name doesn't conflict with existing tech terminology",
+            "Consider how it will work with common tech suffixes (.js, .py, .io)"
+        };
     }
 }

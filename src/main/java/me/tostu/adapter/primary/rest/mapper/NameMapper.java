@@ -9,7 +9,19 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "cdi")
 public interface NameMapper {
 
-    NameRequest toDomain(NameRequestDto dto);
+    default NameRequest toDomain(NameRequestDto dto) {
+        if (dto == null) {
+            return null;
+        }
+        return new NameRequest(dto.getTemplate(), dto.getContext(), dto.getCount());
+    }
 
-    NameResponseDto toDto(NameSuggestion suggestion);
+    default NameResponseDto toDto(NameSuggestion suggestion) {
+        if (suggestion == null) {
+            return null;
+        }
+        NameResponseDto dto = new NameResponseDto();
+        dto.setNames(suggestion.names());
+        return dto;
+    }
 }

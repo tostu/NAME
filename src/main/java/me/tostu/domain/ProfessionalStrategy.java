@@ -4,7 +4,8 @@ public class ProfessionalStrategy extends AbstractNameGenerationStrategy {
     
     @Override
     protected String getInstruction(String context) {
-        return "Generate professional, trustworthy names for: " + context;
+        return "Generate professional, trustworthy names that establish credibility and expertise in the domain of: " + context + 
+               ". Names should convey competence and authority specific to " + context + " while inspiring client confidence.";
     }
     
     @Override
@@ -32,5 +33,17 @@ public class ProfessionalStrategy extends AbstractNameGenerationStrategy {
     @Override
     protected String[] getExamples() {
         return new String[]{"Goldman Sachs", "McKinsey", "Deloitte", "Accenture", "IBM"};
+    }
+    
+    @Override
+    protected String[] getAdditionalGuidance() {
+        return new String[]{
+            "Identify the professional domain and expertise areas within the context",
+            "Consider how the name will appear on business cards and letterheads",
+            "Ensure the name conveys expertise and establishes immediate credibility",
+            "Think about international business contexts and cultural sensitivity",
+            "Consider trademark and legal implications for business use",
+            "Verify the name works well in formal presentations and proposals"
+        };
     }
 }

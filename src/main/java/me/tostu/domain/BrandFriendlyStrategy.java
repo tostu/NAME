@@ -4,7 +4,8 @@ public class BrandFriendlyStrategy extends AbstractNameGenerationStrategy {
     
     @Override
     protected String getInstruction(String context) {
-        return "Generate brand-friendly, memorable names for: " + context;
+        return "Generate brand-friendly, memorable names that capture the essence of: " + context + 
+               ". The names should immediately convey what " + context + " represents to potential customers.";
     }
     
     @Override
@@ -31,5 +32,17 @@ public class BrandFriendlyStrategy extends AbstractNameGenerationStrategy {
     @Override
     protected String[] getExamples() {
         return new String[]{"Stripe", "Slack", "Zoom", "Notion", "Figma"};
+    }
+    
+    @Override
+    protected String[] getAdditionalGuidance() {
+        return new String[]{
+            "Analyze the context for key emotional, functional, and descriptive elements",
+            "Test names by saying them aloud - they should roll off the tongue",
+            "Consider domain availability implications - avoid hyphens and numbers",
+            "Think about how the name will look in lowercase (for URLs and handles)",
+            "Ensure the name doesn't have negative connotations in major languages",
+            "Names should tell a story about what the context represents"
+        };
     }
 }
