@@ -60,32 +60,32 @@ class GenerateNameServiceTest {
     }
 
     @Test
-    void frieren_character_names_use_detailed_prompt() {
+    void old_german_character_names_use_detailed_prompt() {
         CapturingFakeGenerator fake = new CapturingFakeGenerator();
         GenerateNameService svc = new GenerateNameService(fake, new NameGenerationStrategyFactory());
 
-        NameRequest req = new NameRequest(NameTemplate.FRIEREN, "heroic warrior", 3);
+        NameRequest req = new NameRequest(NameTemplate.OLD_GERMAN, "heroic warrior", 3);
 
         svc.generateNames(req);
 
         String prompt = fake.last.context();
         assertTrue(prompt.toLowerCase().contains("german"));
-        assertTrue(prompt.toLowerCase().contains("frieren"));
+        assertTrue(prompt.toLowerCase().contains("german"));
         assertTrue(prompt.toLowerCase().contains("stark"));
         assertTrue(prompt.contains("heroic warrior"));
     }
 
     @Test
-    void frieren_spell_names_use_detailed_prompt() {
+    void old_german_spell_names_use_detailed_prompt() {
         CapturingFakeGenerator fake = new CapturingFakeGenerator();
         GenerateNameService svc = new GenerateNameService(fake, new NameGenerationStrategyFactory());
 
-        NameRequest req = new NameRequest(NameTemplate.FRIEREN, "ice magic", 5);
+        NameRequest req = new NameRequest(NameTemplate.OLD_GERMAN, "ice magic", 5);
 
         svc.generateNames(req);
 
         String prompt = fake.last.context();
-        assertTrue(prompt.toLowerCase().contains("frieren"));
+        assertTrue(prompt.toLowerCase().contains("german"));
         assertTrue(prompt.toLowerCase().contains("german"));
         assertTrue(prompt.toLowerCase().contains("fantasy"));
         assertTrue(prompt.contains("ice magic"));
